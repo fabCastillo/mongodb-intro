@@ -1,0 +1,43 @@
+use("platzi_store")
+
+db.products.drop()
+
+/* 
+    El metodo `insertMany()` nos ayuda a 
+    insertar varios documentos al tiempo 
+*/
+db.products.insertMany([
+    /* 
+        Si usamos el parametro _id, podemos customizar 
+        el identificador y que mongo no lo haga automaticamente 
+    */
+    {
+        _id: 1,
+        name: "product 1",
+        price: 10
+    },
+    {
+        _id: 2,
+        name: "product 2",
+        price: 20
+    },
+    {
+        _id: 2,
+        name: "product 3",
+        price: 30
+    },
+    {
+        _id: 4,
+        name: "product 4",
+        price: 40
+    }
+], {
+    ordered: false
+})
+
+/* 
+    Pasarle el parametro `ordered: false` nos ayuda a que 
+    si hay un error no se detenga el insert de documentos 
+*/
+
+db.products.find()
